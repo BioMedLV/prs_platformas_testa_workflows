@@ -8,44 +8,20 @@ startProc.consumeProcessErrorStream(sb)
 println startProc.text
 println sb.toString()
 
-try {
-    startProc = "source ${project_dir}/venv/bin/activate && python ${projectDir}/build_input.py ${project_dir}".execute()
-    sb = new StringBuffer()
-    startProc.consumeProcessErrorStream(sb)
-    println startProc.text
-    println sb.toString()
-} catch (ExceptionType e) {
-    println("Exception occured during build_input:")
-    e.printStackTrace()
 
-    def proc = "${project_dir}/failed.sh".execute()
-    def b = new StringBuffer()
-    proc.consumeProcessErrorStream(b)
-    println proc.text
-    println b.toString()
-    System.exit(1)  // Exit with status code 1 (error termination)
-}
+startProc = "source ${project_dir}/venv/bin/activate && python ${projectDir}/build_input.py ${project_dir}".execute()
+sb = new StringBuffer()
+startProc.consumeProcessErrorStream(sb)
+println startProc.text
+println sb.toString()
+
 
 workflow.onComplete {
-
-    try {
     startProc = "source ${project_dir}/venv/bin/activate && python ${projectDir}/build_output.py ${project_dir}".execute()
     sb = new StringBuffer()
     startProc.consumeProcessErrorStream(sb)
     println startProc.text
     println sb.toString()
-    } catch (ExceptionType e) {
-
-    println("Exception occured during build_input:")
-    e.printStackTrace()
-
-    def proc = "${project_dir}/failed.sh".execute()
-    def b = new StringBuffer()
-    proc.consumeProcessErrorStream(b)
-    println proc.text
-    println b.toString()
-    System.exit(1)  // Exit with status code 1 (error termination)
-    }
 
     println "Pipeline completed at: $workflow.complete"
     println "Execution status: ${ workflow.success ? 'OK' : 'failed' }"
