@@ -1,0 +1,12 @@
+{
+  "field_sex": {
+    "value": 1
+  },
+  "field_polygenic_risk_trait": {
+    "value": "type_1_diabetes"
+  },
+   "field_user_text": {
+    "filename": "/input/files/4ac27abb-e1a3-470c-837a-f5454bf127cd.vcf"
+  }
+
+}

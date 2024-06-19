@@ -1,0 +1,19 @@
+.nextflow*
+work/
+data/
+results/
+.DS_Store
+testing/
+testing*
+*.pyc
+#Don't include any logs generated after NextFlow runs
+/.nextflow
+/.nextflow.log*
+/work
+#Don't include Python venv files, these will be created using the init.sh
+/venv
+#Don't include any files generated after nextflow run
+/output/files/*
+/output/output.json
+#IDE files
+/.idea
