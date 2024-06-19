@@ -9,7 +9,7 @@ println startProc.text
 println sb.toString()
 
 
-startProc = "source ${project_dir}/venv/bin/activate && python ${projectDir}/build_input.py ${project_dir}".execute()
+startProc = "${project_dir}/build_input.sh".execute()
 sb = new StringBuffer()
 startProc.consumeProcessErrorStream(sb)
 println startProc.text
@@ -17,7 +17,7 @@ println sb.toString()
 
 
 workflow.onComplete {
-    startProc = "source ${project_dir}/venv/bin/activate && python ${projectDir}/build_output.py ${project_dir}".execute()
+    startProc = "${project_dir}/build_output.sh".execute()
     sb = new StringBuffer()
     startProc.consumeProcessErrorStream(sb)
     println startProc.text
