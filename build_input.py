@@ -17,7 +17,7 @@ def json_to_csv(base_directory):
     # Extract the required fields
     sex = data.get("field_sex", {}).get("value", "")
     trait = data.get("field_polygenic_risk_trait", {}).get("value", "")
-    filename = data.get("field_user_text", {}).get("filename", "")
+    filename = data.get("field_genome_file", {}).get("filename", "")
 
     # Prepend the base directory to the filename
     genome_file = base_directory + filename
