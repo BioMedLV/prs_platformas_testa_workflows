@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -A @account
 #PBS -q batch
-#PBS -l walltime=24:00:00,procs=12,mem=32g
+#PBS -l walltime=24:00:00,procs=12,mem=36g
 #PBS -j oe
 
 module load singularity/3.11.4
