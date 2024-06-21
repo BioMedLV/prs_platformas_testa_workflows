@@ -6,6 +6,23 @@
 
 ## Introduction
 
+Repo based on This repo is based on https://github.com/raimondsre/lvbmc-polygenictest and extended for integration with calculator platform
+
+#### Integration with calculator platform
+
+The following changes are made for integration with the calculator platform:
+1. python application for building /input/input.csv and its runner script - build_input.py, build_input.sh
+2. python application for building output.json and its runner script - build_output.py, build_output.sh
+3. python application for building the risk chart - risk_score_chartjs.py 
+4. even handlers that need to be called from the main application - completed.sh (pipeline completed), failed.sh (unknown failure), failed_320.sh (corrupt input file), started.sh (pipeline started)
+5. init script called by the hpc integrator that installs the needed dependencies for python applications - init.sh
+6. versions of python dependencies - requirements.txt 
+7. qsub runner script template (@account => HPC account, @base_dir => root dir of computation task on HPC, @entrypoint => main file of the nextflow application, e.g. main.nf) - runner.template.sh
+
+50 lines for triggering event handler scripts are added to the start of the main.nf
+
+#### Pipeline info
+
 **raimondsre/polygenictest** is a bioinformatics pipeline that calculates individual polygenic score percentile in the population.
 
 <!-- TODO nf-core:

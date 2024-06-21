@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
+//Updates for integration with calculator platform START
 project_dir = projectDir
-
 //Run this script to notify the platform that task execution has started
 def startProc = "${project_dir}/started.sh".execute()
 def sb = new StringBuffer()
@@ -14,7 +14,6 @@ sb = new StringBuffer()
 startProc.consumeProcessErrorStream(sb)
 println startProc.text
 println sb.toString()
-
 
 workflow.onComplete {
     startProc = "${project_dir}/build_output.sh".execute()
@@ -48,6 +47,7 @@ workflow.onError {
     println b.toString()
 }
 
+//Updates for integration with calculator platform END
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
