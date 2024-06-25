@@ -50,7 +50,7 @@ process VCF_conversion {
     #  --out ${output}
     
     echo -e "sample,trait,percentile" > pgs_output.csv
-    echo -e "TestID,type_1_diabetes,61" >> pgs_output.csv
+    echo -e "TestID,type_1_diabetes,10" >> pgs_output.csv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
