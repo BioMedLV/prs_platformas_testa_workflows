@@ -24,6 +24,7 @@ process VCF_conversion {
     def mem = memory_in_mb > 10000 ? 10000 : (memory_in_mb < 100 ? 100 : memory_in_mb)
     output = "${meta}_${trait}_${prefix}"
     """
+	exit -9
     echo -e "0\\t${meta}\\t${sex}" > sex.fam
     plink2 \\
         --threads $task.cpus \\
